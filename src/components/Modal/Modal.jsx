@@ -14,14 +14,12 @@ const Modal = ({ onCloseModal, activeImage }) => {
     }
   };
 
-  useEffect =
-    (() => {
-      window.addEventListener('keydown', handleEscapeClose);
-      return () => {
-        window.removeEventListener('keydown', handleEscapeClose);
-      };
-    },
-    []);
+  useEffect(() => {
+    window.addEventListener('keydown', handleEscapeClose);
+    return () => {
+      window.removeEventListener('keydown', handleEscapeClose);
+    };
+  }, []);
 
   return (
     <div onClick={handleBackdropClick} className={css.overlay}>
