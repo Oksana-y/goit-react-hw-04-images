@@ -2,12 +2,6 @@ import { useEffect } from 'react';
 import css from './modal.module.scss';
 
 const Modal = ({ onCloseModal, activeImage }) => {
-  const handleEscapeClose = e => {
-    if (e.code === 'Escape') {
-      onCloseModal();
-    }
-  };
-
   const handleBackdropClick = ({ target, currentTarget }) => {
     if (target === currentTarget) {
       onCloseModal();
@@ -15,11 +9,16 @@ const Modal = ({ onCloseModal, activeImage }) => {
   };
 
   useEffect(() => {
+    const handleEscapeClose = e => {
+      if (e.code === 'Escape') {
+        onCloseModal();
+      }
+    };
     window.addEventListener('keydown', handleEscapeClose);
     return () => {
       window.removeEventListener('keydown', handleEscapeClose);
     };
-  }, []);
+  }, [onCloseModal]);
 
   return (
     <div onClick={handleBackdropClick} className={css.overlay}>
