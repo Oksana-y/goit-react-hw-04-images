@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import css from './searchbar.module.scss';
 
@@ -7,7 +7,6 @@ const Searchbar = ({ onSubmit }) => {
 
   const handleChange = e => {
     setQuery(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = e => {
